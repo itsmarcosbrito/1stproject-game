@@ -7,7 +7,7 @@ class Ghost {
         this.y = 25;
 
         const image = new Image();
-        image.src = 'https://image.googleusercontent.com/proxy/qNj3JxjEtQO-pmnCgdt4iwrN9647ajrhVgwOSKo_j1fxNY3QYCcJ6SlRifyXQECI1lvc2g-YTqXX7xatohHPxYbSXpB1jnii6rVo1X7x-sdh8A';
+        image.src = 'h2g--sdh8A';
         image.addEventListener('load', () => {
             this.image = image;
             this.draw();
