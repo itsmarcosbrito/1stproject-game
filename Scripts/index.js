@@ -1,13 +1,45 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
+// const intro = document.getElementById('game-intro');
+// intro.style.display = 'none';
 
-class Ghost {
+const width = canvas.width;
+const height = canvas.height;
+
+const background = new Image();
+background.src = "./Images/maze.png"
+
+const gameArea = {
+    frames: 0,
+    start: function() {
+        this.interval = setInterval(updateGameArena, 20);
+    },
+    stop: function() {
+        clearInterval(this.interval);
+    },
+    clear: function() {
+        context.clearRect(0, 0, canvas.width, canvas.height)
+    },
+    drawBackground: function() {
+        context.drawImage(background, 0, 0, canvas.width, canvas.height);
+    }
+}
+
+function updateGameArena() {
+    gameArea.clear();
+    gameArea.drawBackground();
+    myPlayer.draw();
+
+}
+
+
+class Player {
     constructor() {
         this.x = 25;
         this.y = 25;
 
         const image = new Image();
-        image.src = 'h2g--sdh8A';
+        image.src = "./Images/PacMan.png";
         image.addEventListener('load', () => {
             this.image = image;
             this.draw();
@@ -31,27 +63,29 @@ class Ghost {
     }
 
     draw() {
-        context.drawImage(this.image, this.x, this.y, 50, 50);
+        context.drawImage(this.image, this.x, this.y, 35, 35);
     }
 }
 
-const player = new Ghost();
+const myPlayer = new Player();
 
 document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
         case 38: 
-            player.moveUp();
+            myPlayer.moveUp();
         break;
         case 40: 
-            player.moveDown();
+        myPlayer.moveDown();
         break;
         case 37: 
-            player.moveLeft();
+        myPlayer.moveLeft();
         break;
         case 39: 
-            player.moveRight();
+        myPlayer.moveRight();
         break;
     }
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    player.draw();
+    // context.clearRect(0, 0, canvas.width, canvas.height);
+    // myPlayer.draw();
 });
+
+gameArea.start();
