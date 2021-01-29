@@ -8,16 +8,23 @@
         <title>HUNGRY HOMER GAMES</title>
     </head>
     <body>
-        <div id="game-intro">
-            <img src="./Images/main-intro.png" alt="" class="logo-img" />
-            <br />
-            <button id="start-button">Start Game</button> 
+        <div class="main">
+            <div id="game-intro">
+                <button id="start-button">Start Game</button> 
+                <img src="./Images/main-intro.png" alt="" class="logo-img" />
+                <br />
+            </div>
+            <div id="game-board" class="hidden">
+                <canvas id="canvas" width="640" height="640"></canvas>
+                <p><button id="mute-sound">Mute</button>
+                <p>Current Score: <span id="score">0</span></p>
+                <p>Time Left: <span id="sec">30</span> seconds</p>
+            </div>
+            <div id="game-over">
+                Game Over <img src="https://static.wikia.nocookie.net/simpsons/images/0/07/Marge_entediada_internet_laptop.jpg/revision/latest/scale-to-width-down/650?cb=20190306002451&path-prefix=pt" alt="" srcset="">
+            </div>
         </div>
-        <div id="game-board" class="hidden">
-            <canvas id="canvas" width="640" height="640"></canvas>
-            <p>Current Score: <span id="score">0</span></p>
-            <p>Time Left: <span id="sec">30</span> seconds</p>
-        </div>
+        
         <script type="text/javascript" src="./Scripts/main.js"></script>
         <script type="text/javascript" src="./scripts/obstacle.js"></script>
         <script type="text/javascript" src="./scripts/player.js"></script>

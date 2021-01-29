@@ -1,6 +1,7 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
+let toggleSound = false;
 const startButton = document.getElementById('start-button');
 
 const themeSong = new Audio('./Images/audio1.mp4');
@@ -12,6 +13,18 @@ startButton.addEventListener('click', () => {
     gameBoard.classList.remove('hidden');
     gameArea.start();
     themeSong.play();
+})
+
+const muteButton = document.getElementById('mute-sound');
+muteButton.addEventListener('click', () => {
+    toggleSound = !toggleSound;
+    
+    themeSong.muted = toggleSound;
+    if (themeSong.muted) {
+        muteButton.innerText = "Unmute";
+    } else {
+        muteButton.innerText = "Mute";
+    }
 })
 
 const width = canvas.width;
@@ -53,6 +66,9 @@ const gameArea = {
             context.font = '30px Arial';
             context.fillText('Game Over', 10, 50);
             this.stop();
+            document.getElementById('game-board').style.display = 'none';
+            document.getElementById('game-over').style.display = 'block';
+
         }
     },
     drawGrid: function() {
@@ -83,10 +99,18 @@ function updateGameArena() {
     myPlayer.draw();
     newBeer.draw();
     newDonut.draw();
+    newDonut2.draw();
+    newDonut3.draw();
+    newDonut4.draw();
     newSalad.draw();
+    newPig.draw();
     myPlayer.checkCollision(newBeer);
     myPlayer.checkCollision(newDonut);
+    myPlayer.checkCollision(newDonut2);
+    myPlayer.checkCollision(newDonut3);
+    myPlayer.checkCollision(newDonut4);
     myPlayer.checkCollision(newSalad);
+    myPlayer.checkCollision(newPig);
     gameArea.displayScore();
     gameArea.checkTimer();
 }

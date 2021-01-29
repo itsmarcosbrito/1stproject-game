@@ -154,4 +154,8 @@ class Salad {
 
 const newBeer = new Beer();
 const newDonut = new Donut1();
+const newDonut2 = new Donut2();
+const newDonut3 = new Donut3();
+const newDonut4 = new Donut4();
 const newSalad = new Salad();
+const newPig = new Pig();
