@@ -4,11 +4,13 @@ const context = canvas.getContext('2d');
 let toggleSound = false;
 const startButton = document.getElementById('start-button');
 
+
+
 const themeSong = new Audio('./Images/audio1.mp4');
 
 startButton.addEventListener('click', () => {
     const intro = document.getElementById('game-intro');
-    intro.setAttribute('class', 'hidden')
+    intro.classList.add('hidden')
     const gameBoard = document.getElementById('game-board');
     gameBoard.classList.remove('hidden');
     gameArea.start();
